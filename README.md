@@ -11,7 +11,7 @@ This repository contains example software to:
 
 # Required Packages
 - Software written in Python (3.12.8) using the SBI Toolbox (0.23.3)
-- Created using numpy (1.26.4), scipy (1.12.0), pytorch (2.5.1) and nibabel (5.3.2) integrated into Jupyter notebooks.
+- Created using numpy (1.26.4), scipy (1.12.0), pytorch (2.5.1) and nibabel (5.3.2), integrated into Jupyter notebooks.
 
 # Example
 
