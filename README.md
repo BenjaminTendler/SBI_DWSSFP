@@ -12,3 +12,10 @@ This repository contains example software to:
 # Required Packages
 - Software written in Python (3.12.8) using the SBI Toolbox (0.23.3)
 - Created using numpy (1.26.4), scipy (1.12.0), pytorch (2.5.1) and nibabel (5.3.2) integrated into Jupyter notebooks.
+
+# Example
+
+The below figure displays an example V1 map (FA-modulated) estimated using NPE from experimental DW-SSFP data acquired in a post-mortem human brain (0.85 mm isotropic resolution). 
+
+![Example V1 map (FA-modulated) estimated using NPE from experimental DW-SSFP data acquired in a post-mortem human brain (0.85 mm isotropic resolution)](https://github.com/BenjaminTendler/SBI_DWSSFP/blob/main/NPE_ExampleImage.png)
+
