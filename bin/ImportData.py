@@ -19,6 +19,16 @@ def ImportDataDWSSFP(DataPath):
     tau = np.loadtxt(''.join([DataPath,'/DiffGradDurs']))
     G = np.loadtxt(''.join([DataPath,'/DiffGradAmps']))
     TRs = np.loadtxt(''.join([DataPath,'/TRs']))
-    return Data, T1, T2, B1, mask, noisefloor, bvecs, FlipAngles, tau, G, TRs
+    b0s = np.loadtxt(''.join([DataPath,'/b0s']))
+    return Data, T1, T2, B1, mask, noisefloor, bvecs, FlipAngles, tau, G, TRs, b0s
+
+def ImportTextDataDWSSFP(DataPath):
+    bvecs = np.loadtxt(''.join([DataPath,'/bvecs']))
+    FlipAngles = np.loadtxt(''.join([DataPath,'/flipAngles']))
+    tau = np.loadtxt(''.join([DataPath,'/DiffGradDurs']))
+    G = np.loadtxt(''.join([DataPath,'/DiffGradAmps']))
+    TRs = np.loadtxt(''.join([DataPath,'/TRs']))
+    b0s = np.loadtxt(''.join([DataPath,'/b0s']))
+    return bvecs, FlipAngles, tau, G, TRs, b0s
     
     
