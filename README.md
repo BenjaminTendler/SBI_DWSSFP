@@ -6,6 +6,7 @@ This repository provides software associated with ongoing work integrating Neura
 This repository contains example software to:
 - Train a NPE network to characterise the DW-SSFP signal under a Tensor representation (BuildNPENetwork.ipynb)
 - Estimate Tensor coefficients from DW-SSFP data using an NPE network (NPE_ParameterEstimation.ipynb) or Non Linear Least Squares (NLLS) (NLLS_ParameterEstimation.ipynb)
+- A Trained NPE network (Posterior.pkl)
 - Example data (DW-SSFP & and dependency maps downsampled to 9 mm isotropic resolution; supporting text files).
 
 # Required Packages
