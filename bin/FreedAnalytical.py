@@ -95,7 +95,7 @@ def FreedDWSSFPTensor(G, tau, TR, alpha, T1, T2, bvecs, Dxx, Dyy, Dzz, Dxy, Dxz,
 def FreedDWSSFPTensor_Conditional(theta, G, tau, TR, alpha, bvecs, B1, T1, T2):
     
     ##
-    #Expand Tensor & SNR Estimate
+    #Expand Tensor Estimate
     Dxx, Dyy, Dzz, Dxy, Dxz, Dyz = theta
 
     ##
@@ -116,10 +116,10 @@ def FreedDWSSFPTensor_Conditional(theta, G, tau, TR, alpha, bvecs, B1, T1, T2):
         #Calculate Signal
         S=FreedDWSSFPTensor(G,tau,TR,alpha_B1,T1,T2,bvecs,Dxx,Dyy,Dzz,Dxy,Dxz,Dyz)
 
-    return np.concatenate((S,[B1/100],[T1/100000],[T2/10000]))
+    return np.concatenate((S,[B1/1E2],[T1/1E5],[T2/1E4]))
 
 
-def FreedDWSSFPTensor_Conditional_SBIWrapper(theta, G, tau, TR, alpha, bvecs):
+def FreedDWSSFPTensor_Conditional_SBIWrapper(theta, G, tau, TR, alpha, bvecs, B1Range, T1Range, T2Range, Cond = True):
 
     ##
     #Convert theta into 1D array
@@ -127,15 +127,39 @@ def FreedDWSSFPTensor_Conditional_SBIWrapper(theta, G, tau, TR, alpha, bvecs):
 
     ##
     #Define B1 & Relaxation Times
-    B1 = np.random.uniform(0.2,1.2)
-    T1 = np.random.uniform(300,1200)
-    T2 = np.random.uniform(20,80)
+    B1 = np.random.uniform(*B1Range)
+    T1 = np.random.uniform(*T1Range)
+    T2 = np.random.uniform(*T2Range)
 
     ##
     #Run Signal Estimation
     S = FreedDWSSFPTensor_Conditional(theta,G,tau,TR,alpha,bvecs, B1, T1, T2)
 
     ##
+    #Remove conditioning on T1/T2/B1
+    if Cond == False:
+        S = S[:-3]
+
+    ##
     #Output as torch array
     return torch.from_numpy(S[np.newaxis,:]).type(torch.float32)
 
+
+def FreedDWSSFPTensor_curve_fit(x, theta, G, tau, TR, alpha, bvecs, B1, T1, T2):
+    
+    ##
+    #Expand Tensor Estimate
+    Dxx, Dyy, Dzz, Dxy, Dxz, Dyz = theta
+
+    ##
+    #Perform Eigenvalue Decomposition
+    DTensor = np.array([[Dxx,Dxy,Dxz],[Dxy,Dyy,Dyz],[Dxz,Dyz,Dzz]])    
+    ##
+    #Assign B1 to modify flip angle
+    alpha_B1=alpha*B1
+
+    ##
+    #Calculate Signal
+    S=FreedDWSSFPTensor(G,tau,TR,alpha_B1,T1,T2,bvecs,Dxx,Dyy,Dzz,Dxy,Dxz,Dyz)
+
+    return S
