@@ -10,8 +10,8 @@ This repository contains example software to:
 - Example data (DW-SSFP & and dependency maps downsampled to 9 mm isotropic resolution + supporting text files).
 
 # Required Packages
-- Software written in Python (3.12.8) using the SBI Toolbox (0.23.3)
-- Created using NumPy (1.26.4), SciPy (1.12.0), PyTorch (2.5.1) and NiBabel (5.3.2), integrated into Jupyter notebooks.
+- Software written in _Python_ (3.12.8) using the _SBI Toolbox_ (0.23.3)
+- Created using _NumPy_ (1.26.4), _SciPy_ (1.12.0), _PyTorch_ (2.5.1) and _NiBabel_ (5.3.2), integrated into _Jupyter_ notebooks.
 
 # Example
 
