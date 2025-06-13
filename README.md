@@ -7,7 +7,7 @@ This repository contains example software to:
 - Train a NPE network to characterise the DW-SSFP signal under a Tensor representation (_BuildNPENetwork.ipynb_)
 - Estimate Tensor coefficients from DW-SSFP data using an NPE network (_NPE_ParameterEstimation.ipynb_) or Non Linear Least Squares (NLLS) (_NLLS_ParameterEstimation.ipynb_)
 - A Trained NPE network (_Posterior.pkl_)
-- Example data (DW-SSFP & and dependency maps downsampled to 9 mm isotropic resolution + supporting text files).
+- Example data (DW-SSFP & dependency maps downsampled to 9 mm isotropic resolution + supporting text files).
 
 # Required Packages
 - Software written in _Python_ (3.12.8) using the _SBI Toolbox_ (0.23.3)
