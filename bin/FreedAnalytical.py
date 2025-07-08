@@ -145,7 +145,7 @@ def FreedDWSSFPTensor_Conditional_SBIWrapper(theta, G, tau, TR, alpha, bvecs, B1
     return torch.from_numpy(S[np.newaxis,:]).type(torch.float32)
 
 
-def FreedDWSSFPTensor_curve_fit(x, theta, G, tau, TR, alpha, bvecs, B1, T1, T2):
+def FreedDWSSFPTensor_curve_fit(x, theta, G, tau, TR, alpha, bvecs, B1, T1, T2, Norm = False):
     
     ##
     #Expand Tensor Estimate
@@ -161,5 +161,8 @@ def FreedDWSSFPTensor_curve_fit(x, theta, G, tau, TR, alpha, bvecs, B1, T1, T2):
     ##
     #Calculate Signal
     S=FreedDWSSFPTensor(G,tau,TR,alpha_B1,T1,T2,bvecs,Dxx,Dyy,Dzz,Dxy,Dxz,Dyz)
+
+    if Norm == True:
+        S = S/FreedDWSSFPTensor(G,0,TR,alpha_B1,T1,T2,bvecs,Dxx,Dyy,Dzz,Dxy,Dxz,Dyz)
 
     return S
