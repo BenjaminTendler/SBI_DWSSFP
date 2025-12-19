@@ -21,3 +21,6 @@ The below figure displays an example V1 map (FA-modulated) estimated using NPE f
 
 ![Example V1 map (FA-modulated) estimated using NPE from experimental DW-SSFP data acquired in a post-mortem human brain (0.85 mm isotropic resolution)](https://github.com/BenjaminTendler/SBI_DWSSFP/blob/main/NPE_ExampleImage.png)
 
+# Copyright
+
+Copyright, 2025, University of Oxford. All rights reserved
